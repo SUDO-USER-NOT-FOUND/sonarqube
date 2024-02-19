@@ -30,4 +30,4 @@ rm -rf "$TMP_DIR"
 echo "All .sql files have been updated."
 echo "Initiating docker squence, docker ......"
 
-sudo docker-compose up -d
+echo vagrant | sudo -S docker-compose up -d

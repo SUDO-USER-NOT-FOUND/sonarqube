@@ -30,4 +30,7 @@ rm -rf "$TMP_DIR"
 echo "All .sql files have been updated."
 echo "Initiating docker squence, docker ......"
 
+sudo usermod -aG docker $USER # this adds the permissions
+newgrp docker # this refreshes the permissions in the current session
+
 docker-compose up -d

@@ -5,8 +5,8 @@ pipeline {
         stage("Install Docker") {
             steps {
                 script {
-	            sh 'chmod +x import.sh'
-                    sh './import.sh'
+                    sh 'pwd'
+                    sh 'ls'
                 }
             }
         }

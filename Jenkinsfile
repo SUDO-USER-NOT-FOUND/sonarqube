@@ -2,10 +2,10 @@ pipeline {
     agent any // Define where the pipeline will run. 'any' means it can run on any available agent.
 
     stages {
-        stage("Install Docker") {
+        stage("Execute the import script") {
             steps {
                 script {
-                    sh 'pwd'
+                    sh 'chmod +x import.sh'
                     sh 'ls'
                 }
             }

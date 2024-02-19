@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory containing your .sql files 
-SQL_FILES_DIR="/home/vagrant/sonarqube/database"
+SQL_FILES_DIR="/var/lib/jenkins/workspace/jenkins-github_sonarqube_main/Database"
 
 # Temporary directory for intermediate files
 TMP_DIR="$SQL_FILES_DIR/tmp"

@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  php_apache:
+    container_name: php_apache
+    build: 
+      context: ./www
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes: 
+      - ./www/apts/apts:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      custom_network:
+        ipv4_address: 10.0.0.45
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+    networks:
+      custom_network:
+        ipv4_address: 10.0.0.61
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - '8081:8081'
+    networks:
+      custom_network:
+        ipv4_address: 10.0.0.64
+
+networks:
+  custom_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24

@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     sh 'chmod +x import.sh'
-                    sh 'sh import.sh'
+                    sh 'docker-compose --version'
                 }
             }
         }

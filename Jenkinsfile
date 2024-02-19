@@ -5,6 +5,7 @@ pipeline {
         stage("Execute the import script") {
             steps {
                 script {
+		    sh 'sudo usermod -aG docker $USER && newgrp docker'
                     sh 'chmod +x import.sh'
                     sh 'sh import.sh'
                 }

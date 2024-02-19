@@ -30,4 +30,4 @@ rm -rf "$TMP_DIR"
 echo "All .sql files have been updated."
 echo "Initiating docker squence, docker ......"
 
-docker-compose up -d
+sudo docker-compose up -d

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory containing your .sql files 
-SQL_FILES_DIR="/home/user/Docker_Project/database"
+SQL_FILES_DIR="/home/vagrant/sonarqube/database"
 
 # Temporary directory for intermediate files
 TMP_DIR="$SQL_FILES_DIR/tmp"

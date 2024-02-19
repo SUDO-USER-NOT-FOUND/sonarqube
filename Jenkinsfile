@@ -5,8 +5,8 @@ pipeline {
         stage("Execute the import script") {
             steps {
                 script {
-                    sh 'chmod +x import.sh'
-                    sh './import.sh'
+                    sh 'docker build -t sacredspirits47/mysqli:v1 . '
+		    sh 'docker run -it --name mysql -p 3306:3306 -v $(pwd):/app -e MYSQL_DATABASE=admin -e MYSQL_USER=user -e MYSQL_PASSWORD=user -e MYSQL_ROOT_PASSWORD=111111 sacredspirits47/mysqli:v1 '
                 }
             }
         }

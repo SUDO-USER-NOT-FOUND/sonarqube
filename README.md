@@ -1,30 +1,33 @@
-# Docker Project: Deploying PHP, MySQL, and phpMyAdmin with Jenkins Automation
+# Docker Project: Deploying PHP, MySQL, and phpMyAdmin
 
-Welcome to the Docker Project for deploying a PHP application with MySQL database support and phpMyAdmin for database management using Jenkins automation.
+Welcome to the Docker Project for deploying a PHP application with MySQL database support and phpMyAdmin for database management.
 
-![Project Logo](https://media.licdn.com/dms/image/C560BAQEqf7Ty65zbYQ/company-logo_200_200/0/1630642974979?e=2147483647&v=beta&t=zvaHR5YD_PdCR8jxm6YqXSitQUPLqTtrDRiyIYzzkN0)
+<p align="center">
+    <img src="https://media.licdn.com/dms/image/C560BAQEqf7Ty65zbYQ/company-logo_200_200/0/1630642974979?e=2147483647&v=beta&t=zvaHR5YD_PdCR8jxm6YqXSitQUPLqTtrDRiyIYzzkN0">
+</p>
 
-## Project Structure
+## 📂 Project Structure
 
-- **www**: Contains the PHP application files
-    - `Dockerfile`: Dockerfile for building the customized PHP application with Apache server for installing extensions
-    - `index.php`: Main PHP file for the application
+- 📁 **www**: Contains the PHP application files
+    - 📄 `Dockerfile`: Dockerfile for building the customized PHP application with Apache server for installing extension
+    - 📄 `index.php`: Main PHP file for the application
     - (Other PHP files and assets for your application)
-- **database**: Contains SQL files and execute script for MySQL setup
-    - `example.sql`: Example SQL file (add your own SQL files here)
-- `import.sh`: DEBIAN/UBUNTU Script to prepend CREATE and USE queries a database based on filename
-- `import.ps1`: Windows Script for creating a database based on filename
-- `docker-compose.yml`: Source code to automate the backup files
+- 📁 **database**: Contains SQL files and execute script for MySQL setup
+    - 📄 `example.sql`: Example SQL file (add your own SQL files here)
+- 📄  `import.sh`:  ⭐ DEBIAN/UBUNTU Script to prepend CREATE and USE queries a database based on filename
+- 📄 - `import.ps1` ⭐ Windows Script for creating a database based on filename
+- 📄  `docker-compose`: ⭐ Source code to automate the backup files
+ 
+⭐ - Indicates it require changes, in that file the specific line is commented as "^_^", followed by a comment about changes
 
-## Getting Started
+## 🚀 Getting Started
+
+To run this Docker project locally, follow these steps:
 
 ### Prerequisites
 
 1. **Docker:**
    - Ensure that Docker is installed on your machine. You can follow the official Docker documentation for installation instructions: [Get Docker](https://docs.docker.com/get-docker/).
-   
-2. **Jenkins:**
-   - Ensure Jenkins is installed on your machine or accessible via a server. Follow the official Jenkins documentation for installation instructions: [Jenkins Documentation](https://www.jenkins.io/doc/).
 
 ### Running the Application
 
@@ -34,24 +37,34 @@ Welcome to the Docker Project for deploying a PHP application with MySQL databas
     cd Docker_Project
     ```
 
-2. **Build and Run the Docker Containers using Jenkins:**
-    - Configure a Jenkins job to execute the necessary Docker commands or scripts.
-    - Trigger the Jenkins job to build and run the Docker containers.
+2. **Build and Run the Docker Containers on Linux:**
+    - Make sure to give permissions, execute the bash file for linux
+    ```bash
+    chmod +x import.sh
+    ./import.sh
+    ```
+2. **Build and Run the Docker Containers:**
+    - Make sure to give permissions, execute the bash file for Windows
+    ```powershell
+    Set-ExecutionPolicy RemoteSigned  # Run as Administrator if necessary
+    cd C:\path\to\your\script\directory
+    .\import.ps1
+    ```
 
 3. **Access the Services:**
    - PHP Application: [http://localhost:80](http://localhost:80)
    - phpMyAdmin: [http://localhost:8081](http://localhost:8081)
    - MySQL Database (accessible internally)
 
-## Prerequisites
+## 🧰 Prerequisites
 
 - Docker installed on your machine
-- Jenkins configured and accessible
 
-## Contributing
+## 🤝 Contributing
 
-Pull requests are welcome! Contribute to make this Docker project even more awesome!
+Pull requests are welcome! Contribute to make this Docker project even more awesome! 🌟
+---
 
-**Feel free to star ⭐ this repository if you find it helpful!**
+**Feel free to star ⭐ this repository if you find it helpful!** 🌟
 
-Happy Dockerizing with Jenkins! 🐳
+Happy Dockerizing! 🐳

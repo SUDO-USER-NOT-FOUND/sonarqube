@@ -5,7 +5,8 @@ pipeline {
         stage("Execute the import script") {
             steps {
                 script {
-                    sh 'docker build -t sacredspirits47/mysqli:v1 . '
+		    sh 'chmod +x import.sh'
+                    sh './import.sh'
                 }
             }
         }

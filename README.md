@@ -14,10 +14,10 @@ Welcome to the Docker Project for deploying a PHP application with MySQL databas
     - (Other PHP files and assets for your application)
 - 📁 **database**: Contains SQL files and execute script for MySQL setup
     - 📄 `example.sql`: Example SQL file (add your own SQL files here)
-- 📄  `import.sh`:  ⭐ DEBIAN/UBUNTU Script to prepend CREATE and USE queries a database based on filename
-- 📄 - `import.ps1` ⭐ Windows Script for creating a database based on filename
-- 📄  `docker-compose`: ⭐ Source code to automate the backup files
- 
+- 📄 `import.sh`: ⭐ DEBIAN/UBUNTU Script to prepend CREATE and USE queries a database based on filename
+- 📄 `import.ps1`: ⭐ Windows Script for creating a database based on filename
+- 📄 `docker-compose`: ⭐ Source code to automate the backup files
+
 ⭐ - Indicates it require changes, in that file the specific line is commented as "^_^", followed by a comment about changes
 
 ## 🚀 Getting Started
@@ -38,12 +38,13 @@ To run this Docker project locally, follow these steps:
     ```
 
 2. **Build and Run the Docker Containers on Linux:**
-    - Make sure to give permissions, execute the bash file for linux
+    - Make sure to give permissions, execute the bash file for Linux
     ```bash
     chmod +x import.sh
     ./import.sh
     ```
-2. **Build and Run the Docker Containers:**
+
+2. **Build and Run the Docker Containers on Windows:**
     - Make sure to give permissions, execute the bash file for Windows
     ```powershell
     Set-ExecutionPolicy RemoteSigned  # Run as Administrator if necessary
@@ -63,6 +64,16 @@ To run this Docker project locally, follow these steps:
 ## 🤝 Contributing
 
 Pull requests are welcome! Contribute to make this Docker project even more awesome! 🌟
+
+## 🔄 Automated Deployment with Jenkins
+
+To automate the deployment of this Docker project with Jenkins:
+
+1. Configure Jenkins to monitor the repository for changes.
+2. Create a Jenkins pipeline or job that triggers on changes to the repository.
+3. Within the Jenkins pipeline or job, execute the necessary commands to build and run the Docker containers, such as running `chmod +x import.sh` and `./import.sh` for Linux or executing the PowerShell script for Windows.
+4. Ensure that Jenkins has appropriate permissions to execute the Docker commands and access the necessary directories.
+
 ---
 
 **Feel free to star ⭐ this repository if you find it helpful!** 🌟

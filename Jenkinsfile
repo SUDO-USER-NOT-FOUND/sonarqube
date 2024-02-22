@@ -1,20 +1,14 @@
-pipeline { 
-    agent any // Define where the pipeline will run. 'any' means it can run on any available agent.
-
+pipeline {
+    agent any
     stages {
-        stage("Execute the import script") {
+        stage('Get Repo Name') {
             steps {
                 script {
-		    sh 'chmod +x import.sh'
-                    sh './import.sh'
+                    // Assuming env.GIT_URL is something like https://github.com/user/repo.git
+                    def repoName = env.GIT_URL.tokenize('/').last().takeWhile { it != '.git' }
+		    echo env.GIT.URL
+                    echo "Repository name is ${repoName}"
                 }
-            }
-        }
-        
-        stage("Display Docker Version") {
-            steps {
-                // Verify Docker version
-                sh 'docker --version'
             }
         }
     }

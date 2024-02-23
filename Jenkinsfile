@@ -10,7 +10,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 // Run SonarScanner within the SonarQube environment
-                withSonarQubeEnv('SonarQube') {
+                withSonarQubeEnv('sqa_14e6325ad28ffdf6325e245dd8f4fcf184427a58') {
                     sh """
                     sonar-scanner \
                     -Dsonar.projectKey=jenkins-github \

@@ -18,6 +18,9 @@ pipeline {
                     -Dsonar.host.url=http://192.168.121.241:9000 \
                     -Dsonar.login=\${env.SONARQUBE_SERVER}
                     """
+                    sh """
+                    echo =${env.GIT_URL}
+                    """
                 }
             }
         }

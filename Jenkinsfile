@@ -1,14 +1,12 @@
 pipeline {
-    agent { label 'linux' }
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '5'))
-    }
+    agent any
     stages {
         stage('Scan') {
             steps {
                 script {
                     withSonarQubeEnv(installationName: 'sonarqube-scanner') {
                         // Add SonarQube scanner steps here
+                        sh 'sonar-scanner' // Example command to run the SonarQube scanner
                     }
                 }
             }

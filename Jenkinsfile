@@ -5,16 +5,7 @@ pipeline {
         // Define SonarQube server credentials
         SONARQUBE_SERVER = credentials('sonar')
     }
-
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout your source code repository
-                git env.GIT_URL
-            }
-        }
-
-        stage('SonarQube analysis') {
+    stage('SonarQube analysis') {
             steps {
                 // Run SonarScanner within the SonarQube environment
                 withSonarQubeEnv('SonarQube') {

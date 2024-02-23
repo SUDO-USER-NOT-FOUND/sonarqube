@@ -4,7 +4,7 @@ stages {
    stage('Code Quality Check via SonarQube') {
    steps {
        script {
-       def scannerHome = tool 'sonarqube';
+       def scannerHome = tool 'sonarscanner';
            withSonarQubeEnv("sonarqube-container") {
            sh "${tool("sonarqube")}/bin/sonar-scanner \
            -Dsonar.projectKey=jenkins-github \

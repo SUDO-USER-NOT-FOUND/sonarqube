@@ -1,13 +1,29 @@
 pipeline {
     agent any
+    
     stages {
-        stage('Get Repo Name') {
+        stage('Checkout') {
             steps {
-                script {
-                    // Assuming env.GIT_URL is something like https://github.com/user/repo.git
-                    def repoName = env.GIT_URL.tokenize('/').last().takeWhile { it != '.git' }
-		    echo env.GIT_URL
-                    echo "Repository name is ${repoName}"
+                // Checkout your source code repository
+                checkout scm
+            }
+        }
+        
+        stage('SonarQube analysis') {
+            environment {
+                // Define SonarQube server credentials
+                SONARQUBE_SERVER = credentials('soonar')
+            }
+            steps {
+                // Run SonarScanner within the SonarQube environment
+                withSonarQubeEnv('SonarQube') {
+                    sh """
+                    sonar-scanner \
+                    -Dsonar.projectKey=jenkins-github \
+                    -Dsonar.sources= . \
+                    -Dsonar.host.url=http://192.168.121.241:9000 \
+                    -Dsonar.login=\${env.SONARQUBE_SERVER}
+                    """
                 }
             }
         }

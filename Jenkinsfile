@@ -6,7 +6,7 @@ pipeline {
                 script {
                     withSonarQubeEnv(installationName: 'sonar') {
                         // Run SonarScanner
-                        sh "sonar/bin/sonar-scanner"
+                        sh "sonar-scanner"
                     }
                 }
             }

@@ -1,23 +1,30 @@
 pipeline {
     agent any
 
+    environment {
+        // Define SonarQube server credentials
+        SONARQUBE_SERVER = credentials('sonar')
+    }
+
     stages {
-        stage('SCM') {
+        stage('Checkout') {
             steps {
                 // Checkout your source code repository
-                checkout scm
+                git env.GIT_URL
             }
         }
 
-        stage('SonarQube Analysis') {
+        stage('SonarQube analysis') {
             steps {
-                // Define SonarScanner tool
-                def scannerHome = tool 'sonar'
-
                 // Run SonarScanner within the SonarQube environment
                 withSonarQubeEnv('SonarQube') {
-                    // Execute SonarScanner command
-                    sh "${scannerHome}/bin/sonar-scanner"
+                    sh """
+                    sonar-scanner \
+                    -Dsonar.projectKey=jenkins-github \
+                    -Dsonar.sources= env.GIT_URL \
+                    -Dsonar.host.url= http://192.168.121.241:9000 \
+                    -Dsonar.login=\${env.SONARQUBE_SERVER}
+                    """
                 }
             }
         }

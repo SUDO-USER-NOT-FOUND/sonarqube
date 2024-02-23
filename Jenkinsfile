@@ -1,16 +1,17 @@
-pipeline { 
-     agent { label 'linux' } 
-     options {
+pipeline {
+    agent { label 'linux' }
+    options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
-     }
-   stages {
-      scan('Scan') {
-         steps {
-            withSonarQubeENv(installationName: 'sonarqube-scanner') {
+    }
+    stages {
+        stage('Scan') {
+            steps {
+                script {
+                    withSonarQubeEnv(installationName: 'sonarqube-scanner') {
+                        // Add SonarQube scanner steps here
+                    }
+                }
             }
-         }
-      }
-   }
+        }
+    }
 }
-         
-      

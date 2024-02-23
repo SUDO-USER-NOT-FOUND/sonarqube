@@ -4,7 +4,7 @@ pipeline {
         stage('Scan') {
             steps {
                 script {
-                    withSonarQubeEnv(installationName: 'sonarqube-scanner') {
+                    withSonarQubeEnv(installationName: 'sonar') {
 
                     }
                 }

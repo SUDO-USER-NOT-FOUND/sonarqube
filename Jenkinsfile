@@ -12,7 +12,7 @@ pipeline {
         stage('SonarQube analysis') {
             environment {
                 // Define SonarQube server credentials
-                SONARQUBE_SERVER = credentials('soonar')
+                SONARQUBE_SERVER = credentials('sonar')
             }
             steps {
                 // Run SonarScanner within the SonarQube environment

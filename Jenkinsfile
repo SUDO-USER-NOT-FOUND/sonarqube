@@ -4,7 +4,7 @@ pipeline {
         stage('Scan') {
             steps {
                 script {
-                    sh "ls" 
+                    sh "./retrieve.sh" 
                 }
             }
         }

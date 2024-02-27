@@ -48,7 +48,7 @@ docker_command="docker run \
     -e SONAR_HOST_URL=\"$sonar_host_url\" \
     -e SONAR_SCANNER_OPTS=\"-Dsonar.projectKey=$project_key\" \
     -e SONAR_TOKEN=\"$auth_token\" \
-    -v \"$repo:/usr/src\" \
+    -v \"/usr/src\" \
     sonarsource/sonar-scanner-cli"
 
 echo "Running Docker command:"
